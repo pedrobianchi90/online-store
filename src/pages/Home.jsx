@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 
 class Home extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+  // componentDidMount(){
+
+  // };
+
   render() {
     return (
       <div>
