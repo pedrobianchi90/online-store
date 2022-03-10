@@ -7,9 +7,7 @@ class Home extends React.Component {
       <div>
         <input type="text" />
         <Link to="/shoppingcart" data-testid="shopping-cart-button">
-          <button type="button">
-            Carrinho de Compras
-          </button>
+          Carrinho de Compras.
         </Link>
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
