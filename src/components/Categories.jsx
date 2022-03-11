@@ -6,7 +6,7 @@ class Categories extends React.Component {
     super();
 
     this.state = {
-      categories: [],
+      categoriesList: [],
     };
     this.cat = this.cat.bind(this);
   }
@@ -17,18 +17,23 @@ class Categories extends React.Component {
 
   async cat() {
     this.setState({
-      categories: await getCategories(),
+      categoriesList: await getCategories(),
     });
   }
 
   render() {
-    const { categories } = this.state;
-
+    const { categoriesList } = this.state;
+    const { categories } = this.props;
+  
     return (
       <div>
         {categories.map((index) => (
           <label data-testid="category" key={ index.id } htmlFor={ index.id }>
-            <button type="button" id={ index.id }>
+            <button
+              type="button"
+              id={ index.id }
+              onClick={  }
+            >
               {index.name}
             </button>
           </label>

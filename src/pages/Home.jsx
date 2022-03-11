@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../Components/Card';
 import { getProductsFromCategoryAndQuery } from '../services/api';
-import Categories from '../components/Categories';
+import Categories from '../Components/Categories';
 
 class Home extends React.Component {
   constructor() {
@@ -17,7 +17,6 @@ class Home extends React.Component {
     const { inputText } = this.state;
     const categoria = '';
     const list = await getProductsFromCategoryAndQuery(categoria, inputText);
-    // console.log(list);
     this.setState({
       productList: list.results,
     });
@@ -29,13 +28,15 @@ class Home extends React.Component {
       inputText: value,
     });
   }
-  
+
   render() {
     const { productList } = this.state;
     return (
       <div>
         <aside>
-          <Categories />
+          <Categories
+            searchProcut={ this.searchProduct }
+          />
         </aside>
         <input
           data-testid="query-input"
