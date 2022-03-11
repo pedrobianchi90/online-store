@@ -20,8 +20,4 @@ export async function getProductsFromCategoryAndQuery(categoryId, query) {
   }
 }
 
-if (typeof module !== 'undefined') {
-  module.exports = { getCategories, getProductsFromCategoryAndQuery };
-}
-
-// console.log(getCategories(categories));
+console.log(getCategories());
