@@ -19,5 +19,3 @@ export async function getProductsFromCategoryAndQuery(categoryId, query) {
     return e;
   }
 }
-
-console.log(getCategories());
