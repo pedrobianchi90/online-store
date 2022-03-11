@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../Components/Card';
 import { getProductsFromCategoryAndQuery } from '../services/api';
+import Categories from '../components/Categories';
 
 class Home extends React.Component {
   constructor() {
@@ -28,11 +29,14 @@ class Home extends React.Component {
       inputText: value,
     });
   }
-
+  
   render() {
     const { productList } = this.state;
     return (
       <div>
+        <aside>
+          <Categories />
+        </aside>
         <input
           data-testid="query-input"
           type="text"
