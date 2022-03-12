@@ -2,21 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../Components/Card';
 import { getProductsFromCategoryAndQuery } from '../services/api';
-import Categories from '../Components/Categories';
+import Categories from '../components/Categories';
 
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {
+      categorie: '',
       inputText: '',
       productList: [],
     };
   }
 
   searchProduct = async () => {
-    const { inputText } = this.state;
-    const categoria = '';
-    const list = await getProductsFromCategoryAndQuery(categoria, inputText);
+    const { inputText, categorie } = this.state;
+    const list = await getProductsFromCategoryAndQuery(categorie, inputText);
     this.setState({
       productList: list.results,
     });
@@ -29,13 +29,21 @@ class Home extends React.Component {
     });
   }
 
+  handleRadio = ({ target }) => {
+    const { id } = target;
+    this.setState({
+      categorie: id,
+    });
+    this.searchProduct();
+  };
+
   render() {
     const { productList } = this.state;
     return (
       <div>
         <aside>
           <Categories
-            searchProcut={ this.searchProduct }
+            handleRadio={ this.handleRadio }
           />
         </aside>
         <input
