@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../Components/Card';
 import { getProductsFromCategoryAndQuery } from '../services/api';
-import Categories from '../components/Categories';
+import Categories from '../Components/Categories';
 
 class Home extends React.Component {
   constructor() {
@@ -36,9 +36,10 @@ class Home extends React.Component {
     });
     this.searchProduct();
   };
-
+  
   render() {
     const { productList } = this.state;
+    const { handleButton } = this.props;
     return (
       <div>
         <aside>
@@ -68,9 +69,13 @@ class Home extends React.Component {
           productList.map((product) => (
             <Card
               key={ product.id }
+              // id={ product.id }
               title={ product.title }
               price={ product.price }
               image={ product.thumbnail }
+              handleButton={ handleButton }
+              product={product}
+              testid={"product"}
             />
           )))}
       </div>
