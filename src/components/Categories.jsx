@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { getCategories } from '../services/api';
 
 class Categories extends React.Component {
@@ -6,7 +7,7 @@ class Categories extends React.Component {
     super();
 
     this.state = {
-      categories: [],
+      categoriesList: [],
     };
     this.cat = this.cat.bind(this);
   }
@@ -17,19 +18,24 @@ class Categories extends React.Component {
 
   async cat() {
     this.setState({
-      categories: await getCategories(),
+      categoriesList: await getCategories(),
     });
   }
 
   render() {
-    const { categories } = this.state;
+    const { categoriesList } = this.state;
+    const { handleRadio } = this.props;
 
     return (
       <div>
-        {categories.map((index) => (
-          <label data-testid="category" key={ index.id } htmlFor={ index.id }>
-            <button type="button" id={ index.id }>
-              {index.name}
+        {categoriesList.map((categorie) => (
+          <label data-testid="category" key={ categorie.id } htmlFor={ categorie.id }>
+            <button
+              type="button"
+              id={ categorie.id }
+              onClick={ handleRadio }
+            >
+              {categorie.name}
             </button>
           </label>
         ))}
@@ -37,5 +43,9 @@ class Categories extends React.Component {
     );
   }
 }
+
+Categories.propTypes = {
+  handleRadio: PropTypes.func.isRequired,
+};
 
 export default Categories;

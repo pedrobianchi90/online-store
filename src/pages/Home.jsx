@@ -8,16 +8,15 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
+      categorie: '',
       inputText: '',
       productList: [],
     };
   }
 
   searchProduct = async () => {
-    const { inputText } = this.state;
-    const categoria = '';
-    const list = await getProductsFromCategoryAndQuery(categoria, inputText);
-    // console.log(list);
+    const { inputText, categorie } = this.state;
+    const list = await getProductsFromCategoryAndQuery(categorie, inputText);
     this.setState({
       productList: list.results,
     });
@@ -29,13 +28,23 @@ class Home extends React.Component {
       inputText: value,
     });
   }
-  
+
+  handleRadio = ({ target }) => {
+    const { id } = target;
+    this.setState({
+      categorie: id,
+    });
+    this.searchProduct();
+  };
+
   render() {
     const { productList } = this.state;
     return (
       <div>
         <aside>
-          <Categories />
+          <Categories
+            handleRadio={ this.handleRadio }
+          />
         </aside>
         <input
           data-testid="query-input"
