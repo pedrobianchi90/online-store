@@ -10,39 +10,44 @@ class ProductDetails extends React.Component {
       productName: '',
       productPrice: '',
       productImg: '',
-      // productDetails: [],
+      prod: {},
     };
   }
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const product = await getProductId(id);
-    console.log(product);
     this.setState({
       productName: product.title,
       productPrice: product.price,
       productImg: product.thumbnail,
-      // productDetails: [...product.attributes],
+      prod: product,
     });
   }
 
   render() {
-    const { productName, productPrice, productImg } = this.state;
+    const { productName, productPrice, productImg, prod } = this.state;
+    const { handleButton } = this.props;
     return (
       <div data-testid="product-detail-name">
         <img src={ productImg } alt={ productName } />
-        <h3>{productName}</h3>
+        <h3 data-testid="shopping-cart-product-name">{productName}</h3>
         <p>{ productPrice }</p>
-        {/* <ul>
-          { productDetails.map(({ value_name: marca, id }) => (
-            <li key={ id }>{ marca }</li>
-          ))}
-        </ul> */}
+        <button
+          type="button"
+          onClick={ () => handleButton(prod) }
+          data-testid="product-detail-add-to-cart"
+        >
+          Adicionar
+        </button>
         <Link
           data-testid="product-detail-link"
           to="/ShoppingCart"
         >
-          <button type="button">
+          <button
+            data-testid="shopping-cart-button"
+            type="button"
+          >
             Carrinho de Compras
           </button>
         </Link>
@@ -57,6 +62,7 @@ ProductDetails.propTypes = {
       id: PropTypes.string,
     }),
   }).isRequired,
+  handleButton: PropTypes.func.isRequired,
 };
 
 export default ProductDetails;
