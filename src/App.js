@@ -40,7 +40,8 @@ class App extends Component {
             <Route
               exact
               path="/productdetails/:id"
-              render={ (props) => (<ProductDetails { ...props } />) }
+              render={ (props) => (
+                <ProductDetails { ...props } handleButton={ this.handleButton } />) }
             />
           </Switch>
         </BrowserRouter>
