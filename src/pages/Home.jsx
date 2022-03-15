@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Card from '../Components/Card';
 import { getProductsFromCategoryAndQuery } from '../services/api';
@@ -36,7 +37,7 @@ class Home extends React.Component {
     });
     this.searchProduct();
   };
-  
+
   render() {
     const { productList } = this.state;
     const { handleButton } = this.props;
@@ -69,18 +70,19 @@ class Home extends React.Component {
           productList.map((product) => (
             <Card
               key={ product.id }
-              // id={ product.id }
               title={ product.title }
               price={ product.price }
               image={ product.thumbnail }
               handleButton={ handleButton }
-              product={product}
-              testid={"product"}
+              product={ product }
             />
           )))}
       </div>
     );
   }
 }
+Home.propTypes = {
+  handleButton: PropTypes.func.isRequired,
+};
 
 export default Home;
