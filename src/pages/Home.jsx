@@ -9,15 +9,15 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      categorie: '',
+      category: '',
       inputText: '',
       productList: [],
     };
   }
 
   searchProduct = async () => {
-    const { inputText, categorie } = this.state;
-    const list = await getProductsFromCategoryAndQuery(categorie, inputText);
+    const { inputText, category } = this.state;
+    const list = await getProductsFromCategoryAndQuery(category, inputText);
     this.setState({
       productList: list.results,
     });
@@ -33,7 +33,7 @@ class Home extends React.Component {
   handleRadio = ({ target }) => {
     const { id } = target;
     this.setState({
-      categorie: id,
+      category: id,
     });
     this.searchProduct();
   };
