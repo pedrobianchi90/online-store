@@ -15,9 +15,9 @@ class Form extends React.Component {
 
   componentDidMount() {
     // const list = await getBD();
-    const list = localStorage.getItem('list');
+    const list = JSON.parse(localStorage.getItem('list') || '[]');
     this.setState((prevState) => ({
-      reviewList: [...prevState.reviewList, list],
+      reviewList: [...prevState.reviewList, ...list],
     }));
   }
 
@@ -28,9 +28,7 @@ class Form extends React.Component {
     });
   }
 
-  addItemList = async () => {
-    const { reviewList } = this.state;
-    console.log(reviewList);
+  addItemList = () => {
     const { review, email, rating } = this.state;
     const obj = {
       review,
@@ -38,10 +36,13 @@ class Form extends React.Component {
       rating,
     };
     // await mudarBD(obj);
-    await this.setState((prevState) => ({
+
+    this.setState((prevState) => ({
       reviewList: [...prevState.reviewList, obj],
-    }));
-    localStorage.setItem('list', reviewList);
+    }), () => {
+      const { reviewList } = this.state;
+      localStorage.setItem('list', JSON.stringify(reviewList));
+    });
   }
 
   // useEffect(() => {
@@ -117,7 +118,7 @@ class Form extends React.Component {
             Enviar
           </button>
         </form>
-        {reviewList.length === 0 ? false : (
+        {
           reviewList.map((opinion, index) => (
             <Reviews
               key={ index }
@@ -125,7 +126,7 @@ class Form extends React.Component {
               email={ opinion.email }
               rating={ opinion.rating }
             />))
-        )}
+        }
       </div>
     );
   }
