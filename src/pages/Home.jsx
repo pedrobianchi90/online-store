@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Card from '../components/Card';
+import Card from '../Components/Card';
 import { getProductsFromCategoryAndQuery } from '../services/api';
-import Categories from '../components/Categories';
+import Categories from '../Components/Categories';
 
 class Home extends React.Component {
   constructor() {

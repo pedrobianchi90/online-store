@@ -6,7 +6,7 @@ class Reviews extends React.Component {
     const { review, email, rating } = this.props;
     return (
       <div>
-        <p>Avalicões:</p>
+        <p>Comentário:</p>
         <p>{review}</p>
         <p>{ email }</p>
         <p>{ rating }</p>
