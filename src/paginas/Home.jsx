@@ -64,7 +64,7 @@ class Home extends React.Component {
           Carrinho de Compras
         </Link>
         <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria
+          Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
         {productList.length === 0 ? <p>Nenhum produto foi encontrado</p> : (
           productList.map((product) => (
