@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductId } from '../services/api';
-import Form from '../components/Form';
+import Form from '../Components/Form';
 
 class ProductDetails extends React.Component {
   constructor(props) {
