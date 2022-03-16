@@ -1,9 +1,9 @@
 import React from 'react';
-// import { BrowserRouter, Route } from 'react-router-dom';
+//
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductId } from '../services/api';
-import Form from '../Components/Form';
+import Form from '../Componentes/Form';
 
 class ProductDetails extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../Components/Card';
+import Card from '../Componentes/Card';
 
 class ShoppingCart extends React.Component {
   render() {

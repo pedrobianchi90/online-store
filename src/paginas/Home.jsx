@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Card from '../Components/Card';
+import Card from '../Componentes/Card';
 import { getProductsFromCategoryAndQuery } from '../services/api';
-import Categories from '../Components/Categories';
+import Categories from '../Componentes/Categories';
 
 class Home extends React.Component {
   constructor() {
@@ -64,7 +64,7 @@ class Home extends React.Component {
           Carrinho de Compras
         </Link>
         <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
+          Digite algum termo de pesquisa ou escolha uma categoria
         </p>
         {productList.length === 0 ? <p>Nenhum produto foi encontrado</p> : (
           productList.map((product) => (
