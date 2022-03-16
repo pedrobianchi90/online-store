@@ -1,7 +1,9 @@
 import React from 'react';
+//
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductId } from '../services/api';
+import Form from '../Componentes/Form';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -51,6 +53,13 @@ class ProductDetails extends React.Component {
             Carrinho de Compras
           </button>
         </Link>
+        <Form />
+        {/* <BrowserRouter>
+          <Route
+            path="/Form"
+            render={ () => <Form reviewList={ reviewList } /> }
+          />
+        </BrowserRouter> */}
       </div>
     );
   }

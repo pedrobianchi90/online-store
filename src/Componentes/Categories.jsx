@@ -17,8 +17,9 @@ class Categories extends React.Component {
   }
 
   async cat() {
+    const list = await getCategories();
     this.setState({
-      categoriesList: await getCategories(),
+      categoriesList: list,
     });
   }
 
