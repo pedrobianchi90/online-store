@@ -1,26 +1,28 @@
 let shoppingList = [];
 let productDetailsList = [];
 
-export const excluirProduDaLista = (selected) => {
-  const newList = shoppingList.filter((product) => product.id !== selected.id);
+export const excluirProduDaLista = (id) => {
+  console.log(id);
+  const newList = shoppingList.filter((product) => product.id !== id);
   shoppingList = [newList];
+  console.log(shoppingList);
 };
 
 export const handleButton = (selected) => {
-  console.log(selected);
+  // console.log(selected);
   const contem = shoppingList.some((product) => product.id === selected.id);
   if (contem) {
     // const item = shoppingList.filter((product) => product.id === selected.id)[0];
     // item.selected += 1;
     // excluirProduDaLista(selected);
     shoppingList.push(selected);
-    console.log('fiu fiu');
+    // console.log('fiu fiu');
     // shoppingList = [...item];
   } else {
     // const item = selected;
     // const quandidade = s
     shoppingList.push(selected);
-    console.log(shoppingList);
+    // console.log(shoppingList);
     // shoppingList = [quandidade];
     // console.log(shoppingList);
 
@@ -32,7 +34,7 @@ export const handleButton = (selected) => {
 
 export const interar = (list) => {
   shoppingList = list;
-  console.log(shoppingList);
+  // console.log(shoppingList);
 };
 
 export const getList = () => shoppingList;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { excluirProduDaLista } from '../services/carrinhoDeCompra';
+import { excluirProduDaLista } from '../services/carrinhoDeCompra';
 // import { Link } from 'react-router-dom';
 
 class CardShopping extends React.Component {
@@ -34,7 +34,7 @@ class CardShopping extends React.Component {
 
   render() {
     // const { quantidade } = this.state;
-    const { title, image, price } = this.props;
+    const { title, image, price, id } = this.props;
     return (
       <div data-testid="product">
         <p data-testid="shopping-cart-product-name">{ title }</p>
@@ -57,7 +57,7 @@ class CardShopping extends React.Component {
           +
         </button>
         <button
-          onClick={ this.handleButtonExcluir }
+          onClick={ () => excluirProduDaLista(id) }
           type="button"
         >
           x
@@ -71,6 +71,7 @@ CardShopping.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   // quantity: PropTypes.shape({
   //   quantidade: PropTypes.number.isRequired,
   // }).isRequired,
