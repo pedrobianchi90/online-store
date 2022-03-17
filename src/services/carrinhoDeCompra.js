@@ -1,40 +1,42 @@
 let shoppingList = [];
-let productDetailsList = [];
 
 export const excluirProduDaLista = (id) => {
-  console.log(id);
   const newList = shoppingList.filter((product) => product.id !== id);
-  shoppingList = [newList];
-  console.log(shoppingList);
+  shoppingList = newList;
+};
+
+export const aumentarQuantProdList = (id) => {
+  // const item = shoppingList.filter((product) => product.id === id)[0];
+  // item.quantility += 1;
+  // excluirProduDaLista(id);
+  // shoppingList.push(item);
+  shoppingList.forEach((item, index) => {
+    if (item.id === id) shoppingList[index].quantility += 1;
+  });
+};
+
+export const diminuirQuantProdList = (id) => {
+  const prodc = shoppingList.filter((product) => product.id === id)[0];
+  if (prodc.quantility > 1) {
+    shoppingList.forEach((item, index) => {
+      if (item.id === id) shoppingList[index].quantility -= 1;
+    });
+  }
+  //   item.quantility -= 1;
+  //   excluirProduDaLista(id);
+  //   shoppingList.push(item);
 };
 
 export const handleButton = (selected) => {
-  // console.log(selected);
   const contem = shoppingList.some((product) => product.id === selected.id);
   if (contem) {
-    // const item = shoppingList.filter((product) => product.id === selected.id)[0];
-    // item.selected += 1;
-    // excluirProduDaLista(selected);
-    shoppingList.push(selected);
-    // console.log('fiu fiu');
-    // shoppingList = [...item];
+    aumentarQuantProdList(selected.id);
   } else {
-    // const item = selected;
-    // const quandidade = s
-    shoppingList.push(selected);
-    // console.log(shoppingList);
-    // shoppingList = [quandidade];
-    // console.log(shoppingList);
+    const item = selected;
+    item.quantility = 1;
 
-    const list = productDetailsList.map((prod) => prod);
-    list.push(selected);
-    productDetailsList = [list];
+    shoppingList.push(item);
   }
-};
-
-export const interar = (list) => {
-  shoppingList = list;
-  // console.log(shoppingList);
 };
 
 export const getList = () => shoppingList;
