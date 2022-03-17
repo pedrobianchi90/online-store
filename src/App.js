@@ -4,6 +4,7 @@ import Home from './paginas/Home';
 import ShoppingCart from './paginas/ShoppingCart';
 import ProductDetails from './paginas/ProductDetails';
 import './App.css';
+import { interar } from './services/carrinhoDeCompra';
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends Component {
     this.setState({
       shoppingList: list,
     });
+    interar(shoppingList);
   }
 
   render() {
