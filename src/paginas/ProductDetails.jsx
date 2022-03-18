@@ -1,9 +1,9 @@
 import React from 'react';
-//
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductId } from '../services/api';
 import Form from '../Componentes/Form';
+import { handleButton } from '../services/carrinhoDeCompra';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -29,7 +29,6 @@ class ProductDetails extends React.Component {
 
   render() {
     const { productName, productPrice, productImg, prod } = this.state;
-    const { handleButton } = this.props;
     return (
       <div data-testid="product-detail-name">
         <img src={ productImg } alt={ productName } />
@@ -54,12 +53,6 @@ class ProductDetails extends React.Component {
           </button>
         </Link>
         <Form />
-        {/* <BrowserRouter>
-          <Route
-            path="/Form"
-            render={ () => <Form reviewList={ reviewList } /> }
-          />
-        </BrowserRouter> */}
       </div>
     );
   }
@@ -71,7 +64,6 @@ ProductDetails.propTypes = {
       id: PropTypes.string,
     }),
   }).isRequired,
-  handleButton: PropTypes.func.isRequired,
 };
 
 export default ProductDetails;

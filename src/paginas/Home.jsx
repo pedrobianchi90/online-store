@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Card from '../Componentes/Card';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../Componentes/Categories';
+import { handleButton } from '../services/carrinhoDeCompra';
 
 class Home extends React.Component {
   constructor() {
@@ -30,9 +31,9 @@ class Home extends React.Component {
     });
   }
 
-  handleRadio = ({ target }) => {
+  handleRadio = async ({ target }) => {
     const { id } = target;
-    this.setState({
+    await this.setState({
       category: id,
     });
     this.searchProduct();
@@ -40,7 +41,7 @@ class Home extends React.Component {
 
   render() {
     const { productList } = this.state;
-    const { handleButton } = this.props;
+    // const { handleButton } = this.props;
     return (
       <div>
         <aside>
@@ -81,8 +82,8 @@ class Home extends React.Component {
     );
   }
 }
-Home.propTypes = {
-  handleButton: PropTypes.func.isRequired,
-};
+// Home.propTypes = {
+//   handleButton: PropTypes.func.isRequired,
+// };
 
 export default Home;
