@@ -52,45 +52,54 @@ class Home extends React.Component {
     const { productList, totalItem } = this.state;
     // const { handleButton } = this.props;
     return (
-      <div>
-        <aside>
+      <div className="home">
+        <aside className="asideCat">
           <Categories
             handleRadio={ this.handleRadio }
           />
         </aside>
-        <input
-          data-testid="query-input"
-          type="text"
-          onChange={ this.handleInput }
-        />
-        <button
-          type="button"
-          data-testid="query-button"
-          onClick={ this.searchProduct }
-        >
-          Procurar
-        </button>
-        <Link to="/shoppingcart" data-testid="shopping-cart-button">
-          <span
-            data-testid="shopping-cart-size"
+        <div className="telaBusca">
+          <input
+            className="inputSearch"
+            data-testid="query-input"
+            type="text"
+            onChange={ this.handleInput }
+          />
+          <button
+            type="button"
+            data-testid="query-button"
+            onClick={ this.searchProduct }
           >
-            {`Carrinho de Compras ${totalItem}`}
-          </span>
-        </Link>
-        <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </p>
-        {productList.length === 0 ? <p>Nenhum produto foi encontrado</p> : (
-          productList.map((product) => (
-            <Card
-              key={ product.id }
-              title={ product.title }
-              price={ product.price }
-              image={ product.thumbnail }
-              handleButton={ this.handleClickButton }
-              product={ product }
-            />
-          )))}
+            Procurar
+          </button>
+          <Link
+            className="iconeCartShopping"
+            to="/shoppingcart"
+            data-testid="shopping-cart-button"
+          >
+            <span
+              data-testid="shopping-cart-size"
+            >
+              {`Carrinho de Compras ${totalItem}`}
+            </span>
+          </Link>
+          <p data-testid="home-initial-message">
+            Digite algum termo de pesquisa ou escolha uma categoria.
+          </p>
+          <div className="listagemDeProduto">
+            {productList.length === 0 ? <p>Nenhum produto foi encontrado</p> : (
+              productList.map((product) => (
+                <Card
+                  key={ product.id }
+                  title={ product.title }
+                  price={ product.price }
+                  image={ product.thumbnail }
+                  handleButton={ this.handleClickButton }
+                  product={ product }
+                />
+              )))}
+          </div>
+        </div>
       </div>
     );
   }

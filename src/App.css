@@ -1,42 +1,61 @@
-.App {
-  text-align: center;
+body{
+  background-color: rgb(209, 206, 206);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.home {
+  margin-top: 10px;
+  display: flex;
+  flex-direction:row;
 }
-
-@media ( prefers-reduced-motion : no-preference ) {
-
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-
+.asideCat {
+  width: 15%;
+  border-right: solid 1px;
 }
-
-.App-header {
-  align-items: center;
-  background-color: #282c34;
+.categorias {
+  display: flex;
+  flex-direction:column;
+}
+.telaBusca{
+  padding-left: 1%;
+  width: 85%;
+}
+.iconeCartShopping{
+  position: absolute;
+  right: 5%;
+  text-decoration: none;
+  color: black;
+  border: solid 1px;
+  padding: 2px;
+}
+.iconeCartShopping :hover{
   color: white;
+  background-color: black;
+}
+.inputSearch{
+  width: 30%;
+}
+.listagemDeProduto {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cartHome {
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  margin: 5px;
+  border: solid 1px;
+  width: 200px;
+  background-color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.cartHome a {
+  text-decoration: none;
+  color: black;
 }
-
-@keyframes App-logo-spin {
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+.cartHome a img{
+  margin-left: 50px;
+  width: 100px;
+  height: 100px;
+}
+.cartHome button{
+  width: 80px;
 }
