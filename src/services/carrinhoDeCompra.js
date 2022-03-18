@@ -34,9 +34,20 @@ export const handleButton = (selected) => {
   } else {
     const item = selected;
     item.quantility = 1;
-
     shoppingList.push(item);
   }
+};
+
+export const getquantilityItem = () => {
+  let totalItem = 0;
+  shoppingList.forEach((item) => { totalItem += item.quantility; });
+  return totalItem;
+};
+
+export const getTotalPrice = () => {
+  let totalPrice = 0;
+  shoppingList.forEach((item) => { totalPrice += item.quantility * item.price; });
+  return totalPrice;
 };
 
 export const getList = () => shoppingList;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Card from '../Componentes/Card';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../Componentes/Categories';
-import { handleButton } from '../services/carrinhoDeCompra';
+import { handleButton, getquantilityItem } from '../services/carrinhoDeCompra';
 
 class Home extends React.Component {
   constructor() {
@@ -13,8 +13,11 @@ class Home extends React.Component {
       category: '',
       inputText: '',
       productList: [],
+      totalItem: '0',
     };
   }
+
+  componentDidMount() { this.setState({ totalItem: getquantilityItem() }); }
 
   searchProduct = async () => {
     const { inputText, category } = this.state;
@@ -39,8 +42,14 @@ class Home extends React.Component {
     this.searchProduct();
   };
 
+  handleClickButton = (product) => {
+    handleButton(product);
+    const total = getquantilityItem();
+    this.setState({ totalItem: total });
+  }
+
   render() {
-    const { productList } = this.state;
+    const { productList, totalItem } = this.state;
     // const { handleButton } = this.props;
     return (
       <div>
@@ -62,7 +71,11 @@ class Home extends React.Component {
           Procurar
         </button>
         <Link to="/shoppingcart" data-testid="shopping-cart-button">
-          Carrinho de Compras
+          <span
+            data-testid="shopping-cart-size"
+          >
+            {`Carrinho de Compras ${totalItem}`}
+          </span>
         </Link>
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
@@ -74,7 +87,7 @@ class Home extends React.Component {
               title={ product.title }
               price={ product.price }
               image={ product.thumbnail }
-              handleButton={ handleButton }
+              handleButton={ this.handleClickButton }
               product={ product }
             />
           )))}

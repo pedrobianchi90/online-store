@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductId } from '../services/api';
 import Form from '../Componentes/Form';
-import { handleButton } from '../services/carrinhoDeCompra';
+import { handleButton, getquantilityItem } from '../services/carrinhoDeCompra';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class ProductDetails extends React.Component {
       productPrice: '',
       productImg: '',
       prod: {},
+      totalItem: getquantilityItem(),
     };
   }
 
@@ -28,7 +29,7 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    const { productName, productPrice, productImg, prod } = this.state;
+    const { productName, productPrice, productImg, prod, totalItem } = this.state;
     return (
       <div data-testid="product-detail-name">
         <img src={ productImg } alt={ productName } />
@@ -42,15 +43,18 @@ class ProductDetails extends React.Component {
           Adicionar
         </button>
         <Link
-          data-testid="product-detail-link"
+          data-testid="shopping-cart-button"
           to="/ShoppingCart"
         >
-          <button
+          {/* <button
             data-testid="shopping-cart-button"
             type="button"
-          >
-            Carrinho de Compras
-          </button>
+          > */}
+          Carrinho de Compras:
+          <span data-testid="shopping-cart-size">
+            {totalItem}
+          </span>
+          {/* </button> */}
         </Link>
         <Form />
       </div>
