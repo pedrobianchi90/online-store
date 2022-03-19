@@ -1,73 +1,87 @@
-body{
+body {
   background-color: rgb(209, 206, 206);
 }
+
 .home {
-  margin-top: 10px;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
+  margin-top: 10px;
 }
+
 .asideCat {
-  width: 15%;
   border-right: solid 1px;
+  width: 15%;
 }
+
 .categorias {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 }
-.telaBusca{
+
+.telaBusca {
   padding-left: 1%;
   width: 85%;
 }
-.iconeCartShopping{
-  position: absolute;
-  right: 5%;
-  text-decoration: none;
-  color: black;
+
+.iconeCartShopping {
   border: solid 1px;
+  color: black;
   padding: 2px;
+  position: absolute;
+  text-decoration: none;
+  right: 5%;
 }
-.iconeCartShopping :hover{
-  color: white;
+
+.iconeCartShopping :hover {
   background-color: black;
+  color: white;
 }
-.inputSearch{
+
+.inputSearch {
   width: 30%;
 }
+
 .listagemDeProduto {
   display: flex;
   flex-wrap: wrap;
 }
+
 .cartHome {
+  align-items: center;
+  background-color: white;
+  border: solid 1px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   margin: 5px;
-  border: solid 1px;
   width: 200px;
-  background-color: white;
 }
+
 .freteGratis {
-  position: absolute;
-  margin-left: 15px;
-  width: 40px;
   height: 40px;
+  margin-left: 15px;
+  position: absolute;
+  width: 40px;
 }
-.freteGratisDetails{
+
+.freteGratisDetails {
   position: absolute;
   top: 50px;
-  width: 250px;
   right: 10%;
+  width: 250px;
 }
+
 .cartHome a {
-  text-decoration: none;
   color: black;
+  text-decoration: none;
 }
-.imgProduto{
+
+.imgProduto {
+  height: 100px;
   margin-left: 50px;
   width: 100px;
-  height: 100px;
 }
-.cartHome button{
+
+.cartHome button {
   width: 80px;
 }
