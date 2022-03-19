@@ -13,6 +13,7 @@ class ProductDetails extends React.Component {
       productPrice: '',
       productImg: '',
       prod: {},
+      shipping: false,
       totalItem: getquantilityItem(),
     };
   }
@@ -20,21 +21,37 @@ class ProductDetails extends React.Component {
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const product = await getProductId(id);
+    const { free_shipping: frete } = product.shipping;
     this.setState({
       productName: product.title,
       productPrice: product.price,
       productImg: product.thumbnail,
       prod: product,
+      shipping: frete,
     });
   }
 
   render() {
-    const { productName, productPrice, productImg, prod, totalItem } = this.state;
+    const {
+      productName,
+      productPrice,
+      productImg,
+      prod,
+      totalItem,
+      shipping } = this.state;
     return (
       <div data-testid="product-detail-name">
         <img src={ productImg } alt={ productName } />
         <h3 data-testid="shopping-cart-product-name">{productName}</h3>
         <p>{ productPrice }</p>
+        {shipping ? (
+          <img
+            data-testid="free-shipping"
+            className="freteGratisDetails"
+            src="https://cdn.simplo7.net/static/37412/galeria/155681041950147.png"
+            alt="Frete Grátis"
+          />
+        ) : false}
         <button
           type="button"
           onClick={ () => handleButton(prod) }

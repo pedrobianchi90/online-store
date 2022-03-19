@@ -47,11 +47,23 @@ body{
   width: 200px;
   background-color: white;
 }
+.freteGratis {
+  position: absolute;
+  margin-left: 15px;
+  width: 40px;
+  height: 40px;
+}
+.freteGratisDetails{
+  position: absolute;
+  top: 50px;
+  width: 250px;
+  right: 10%;
+}
 .cartHome a {
   text-decoration: none;
   color: black;
 }
-.cartHome a img{
+.imgProduto{
   margin-left: 50px;
   width: 100px;
   height: 100px;
