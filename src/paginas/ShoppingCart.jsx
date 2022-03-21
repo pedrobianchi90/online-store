@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 // import Card from '../Componentes/Card';
 import CardShopping from '../Componentes/CardInShopCart';
@@ -6,45 +7,51 @@ import {
   aumentarQuantProdList,
   diminuirQuantProdList,
   excluirProduDaLista,
-  getList } from '../services/carrinhoDeCompra';
+  getList,
+  getquantilityItem } from '../services/carrinhoDeCompra';
 
 class ShoppingCart extends React.Component {
   constructor() {
     super();
     this.state = {
       shoppingList: '',
+      totalItem: '',
     };
   }
 
   componentDidMount() {
     const list = getList();
-    this.setState({ shoppingList: list });
+    const total = getquantilityItem();
+    this.setState({ shoppingList: list, totalItem: total });
   }
 
   handleButtonDelete = async (id) => {
     excluirProduDaLista(id);
     const list = getList();
-    await this.setState({ shoppingList: list });
+    const total = getquantilityItem();
+    await this.setState({ shoppingList: list, totalItem: total });
   }
 
   handleButtonAdd = async (id) => {
     aumentarQuantProdList(id);
     const list = getList();
-    await this.setState({ shoppingList: list });
+    const total = getquantilityItem();
+    await this.setState({ shoppingList: list, totalItem: total });
   }
 
   handleButtonSubtract= async (id) => {
     diminuirQuantProdList(id);
     const list = getList();
-    await this.setState({ shoppingList: list });
+    const total = getquantilityItem();
+    await this.setState({ shoppingList: list, totalItem: total });
   }
 
   render() {
-    const { shoppingList } = this.state;
+    const { shoppingList, totalItem } = this.state;
     return (
       <div>
-        <p>
-          {shoppingList.length}
+        <p data-testid="shopping-cart-size">
+          {totalItem}
         </p>
         {shoppingList.length === 0 ? (
           <p data-testid="shopping-cart-empty-message">
@@ -62,6 +69,7 @@ class ShoppingCart extends React.Component {
               handleButtonSubtract={ this.handleButtonSubtract }
               handleButtonAdd={ this.handleButtonAdd }
             />)))}
+        <Link to="/checkout" data-testid="checkout-products">Finalizar Compras</Link>
       </div>
     );
   }

@@ -5,11 +5,20 @@ import { Link } from 'react-router-dom';
 class Card extends React.Component {
   render() {
     const { title, image, price, handleButton, onButton, product, testid } = this.props;
+    const { free_shipping: shipping } = product.shipping;
     return (
-      <div data-testid="product">
+      <div className="cartHome" data-testid="product">
         <Link data-testid="product-detail-link" to={ `/productdetails/${product.id}` }>
           <p data-testid={ testid }>{ title }</p>
-          <img src={ image } alt={ title } />
+          {shipping ? (
+            <img
+              data-testid="free-shipping"
+              className="freteGratis"
+              src="https://cdn.simplo7.net/static/37412/galeria/155681041950147.png"
+              alt="Frete Grátis"
+            />
+          ) : false}
+          <img className="imgProduto" src={ image } alt={ title } />
           <p>{ price }</p>
         </Link>
         { !onButton ? false : (
@@ -35,6 +44,9 @@ Card.propTypes = {
   onButton: PropTypes.bool,
   product: PropTypes.shape({
     id: PropTypes.string,
+    shipping: PropTypes.shape({
+      free_shipping: PropTypes.bool.isRequired,
+    }).isRequired,
   }),
 };
 

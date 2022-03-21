@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductId } from '../services/api';
 import Form from '../Componentes/Form';
-import { handleButton } from '../services/carrinhoDeCompra';
+import { handleButton, getquantilityItem } from '../services/carrinhoDeCompra';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -13,27 +13,45 @@ class ProductDetails extends React.Component {
       productPrice: '',
       productImg: '',
       prod: {},
+      shipping: false,
+      totalItem: getquantilityItem(),
     };
   }
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const product = await getProductId(id);
+    const { free_shipping: frete } = product.shipping;
     this.setState({
       productName: product.title,
       productPrice: product.price,
       productImg: product.thumbnail,
       prod: product,
+      shipping: frete,
     });
   }
 
   render() {
-    const { productName, productPrice, productImg, prod } = this.state;
+    const {
+      productName,
+      productPrice,
+      productImg,
+      prod,
+      totalItem,
+      shipping } = this.state;
     return (
       <div data-testid="product-detail-name">
         <img src={ productImg } alt={ productName } />
         <h3 data-testid="shopping-cart-product-name">{productName}</h3>
         <p>{ productPrice }</p>
+        {shipping ? (
+          <img
+            data-testid="free-shipping"
+            className="freteGratisDetails"
+            src="https://cdn.simplo7.net/static/37412/galeria/155681041950147.png"
+            alt="Frete Grátis"
+          />
+        ) : false}
         <button
           type="button"
           onClick={ () => handleButton(prod) }
@@ -42,15 +60,18 @@ class ProductDetails extends React.Component {
           Adicionar
         </button>
         <Link
-          data-testid="product-detail-link"
+          data-testid="shopping-cart-button"
           to="/ShoppingCart"
         >
-          <button
+          {/* <button
             data-testid="shopping-cart-button"
             type="button"
-          >
-            Carrinho de Compras
-          </button>
+          > */}
+          Carrinho de Compras:
+          <span data-testid="shopping-cart-size">
+            {totalItem}
+          </span>
+          {/* </button> */}
         </Link>
         <Form />
       </div>

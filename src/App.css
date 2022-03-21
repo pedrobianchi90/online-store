@@ -1,42 +1,87 @@
-.App {
-  text-align: center;
+body {
+  background-color: rgb(209, 206, 206);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.home {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
 }
 
-@media ( prefers-reduced-motion : no-preference ) {
-
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-
+.asideCat {
+  border-right: solid 1px;
+  width: 15%;
 }
 
-.App-header {
-  align-items: center;
-  background-color: #282c34;
-  color: white;
+.categorias {
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
+}
+
+.telaBusca {
+  padding-left: 1%;
+  width: 85%;
+}
+
+.iconeCartShopping {
+  border: solid 1px;
+  color: black;
+  padding: 2px;
+  position: absolute;
+  right: 5%;
+  text-decoration: none;
+}
+
+.iconeCartShopping :hover {
+  background-color: black;
+  color: white;
+}
+
+.inputSearch {
+  width: 30%;
+}
+
+.listagemDeProduto {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cartHome {
+  align-items: center;
+  background-color: white;
+  border: solid 1px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
+  margin: 5px;
+  width: 200px;
 }
 
-.App-link {
-  color: #61dafb;
+.freteGratis {
+  height: 40px;
+  margin-left: 15px;
+  position: absolute;
+  width: 40px;
 }
 
-@keyframes App-logo-spin {
+.freteGratisDetails {
+  position: absolute;
+  right: 10%;
+  top: 50px;
+  width: 250px;
+}
 
-  from {
-    transform: rotate(0deg);
-  }
+.cartHome a {
+  color: black;
+  text-decoration: none;
+}
 
-  to {
-    transform: rotate(360deg);
-  }
+.imgProduto {
+  height: 100px;
+  margin-left: 50px;
+  width: 100px;
+}
+
+.cartHome button {
+  width: 80px;
 }

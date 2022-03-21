@@ -28,7 +28,7 @@ class Categories extends React.Component {
     const { handleRadio } = this.props;
 
     return (
-      <div>
+      <div className="categorias">
         {categoriesList.map((categorie) => (
           <label data-testid="category" key={ categorie.id } htmlFor={ categorie.id }>
             <button

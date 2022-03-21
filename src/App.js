@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './paginas/Home';
 import ShoppingCart from './paginas/ShoppingCart';
 import ProductDetails from './paginas/ProductDetails';
+import Checkout from './paginas/Checkout';
 import './App.css';
 // import { interar } from './services/carrinhoDeCompra';
 
@@ -33,7 +34,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={ () => <Home handleButton={ this.handleButton } /> }
+              render={ () => <Home /> }
             />
             <Route
               path="/ShoppingCart"
@@ -43,9 +44,10 @@ class App extends Component {
               exact
               path="/productdetails/:id"
               render={ (props) => (
-                <ProductDetails { ...props } handleButton={ this.handleButton } />) }
+                <ProductDetails { ...props } />) }
             />
           </Switch>
+          <Route path="/checkout" component={ Checkout } />
         </BrowserRouter>
       </div>
     );
