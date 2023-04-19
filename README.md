@@ -6,6 +6,14 @@ This is an e-commerce front-end project that uses the Mercado Livre API to searc
 The system allows for search by category or search terms, enabling users to quickly find what they need. In addition, it is possible to make evaluations and comments about the products.
 <br>
 
+## Tools
+<div style="display: inline_block"><br>
+ <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg">
+ <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg">
+ <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+</div>
+
+
 ## Starting The Project
 1. Clone the repository:
   * ```git clone git@github.com:pedrobianchi90/blogs-api.git```
@@ -14,4 +22,4 @@ The system allows for search by category or search terms, enabling users to quic
 3. Install the dependencies:
   * ```npm install```
 4. Start the project:
-  * ```npm start``
+  * ```npm start```
