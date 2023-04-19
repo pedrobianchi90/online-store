@@ -1,10 +1,17 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Online Store
+
+## Context
+This is an e-commerce front-end project that uses the Mercado Livre API to search for products by category or search terms. Through a simple and intuitive interface, users can easily find desired products and obtain detailed information about them.
+
+The system allows for search by category or search terms, enabling users to quickly find what they need. In addition, it is possible to make evaluations and comments about the products.
+<br>
+
+## Starting The Project
+1. Clone the repository:
+  * ```git clone git@github.com:pedrobianchi90/blogs-api.git```
+2. Navigate to the cloned repository folder:
+  * ```cd blogs-api```
+3. Install the dependencies:
+  * ```npm install```
+4. Start the project:
+  * ```npm start``
