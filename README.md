@@ -4,6 +4,8 @@
 This is an e-commerce front-end project that uses the Mercado Livre API to search for products by category or search terms. Through a simple and intuitive interface, users can easily find desired products and obtain detailed information about them.
 
 The system allows for search by category or search terms, enabling users to quickly find what they need. In addition, it is possible to make evaluations and comments about the products.
+
+The project was made in collaboration with Anna Beatriz Trajano de Sá, Eric Santos, Lilith Gouveia and Lucas Monteiro
 <br>
 
 ## Tools
